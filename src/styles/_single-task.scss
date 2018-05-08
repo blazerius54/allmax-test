@@ -4,14 +4,17 @@
     .single-task-form {
         display: flex;
         flex-direction: column;
+        margin-top: 30px;
 
         input, textarea {
-            margin-bottom: 10px;
+            // margin-bottom: 10px;
         }
 
         .form-section {
             display: flex;
             justify-content: space-between;
+            // align-items: center;
+            margin-bottom: 14px;
           }
           
           .form-section * {
@@ -32,6 +35,8 @@
             border-bottom: 2px solid gray;
             transition: border-bottom 500ms linear;
             background-color: #F0F0F0;
+            // margin-top: 25px;
+            
           }
           
           .form-section textarea {
@@ -47,13 +52,21 @@
     }
 
     .single-task-div {
-        // flex-direction: column;
-        // justify-content: space-between;
+
         .task-section {
             display: flex;
-            // justify-content: space-around;
+            align-items: center;
+            justify-content: space-between;
             p:first-of-type {
                 flex-basis: 20%;
+            }
+
+            p:nth-of-type(2) {
+                flex-basis: 80%;                
+            }
+
+            .delete-btn {
+                background-color: $danger-color;
             }
         }
     }

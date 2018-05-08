@@ -12,6 +12,19 @@ body {
     background-color: $body-bg-color;    
 }
 
+button:focus, input:focus, textarea:focus, select:focus {
+    outline:0;
+}
+
+
+button {
+    padding: 10px;
+    background-color: lighten($font-color, 40%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+
 .nice {
     color: $nice-color;
 }

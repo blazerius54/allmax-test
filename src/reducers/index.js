@@ -1,4 +1,4 @@
-import { EDIT_TODO } from '../consts';
+import { EDIT_TODO, SET_TODO_DONE } from '../consts';
 
 export function reducer(state = [], action) {
     // console.log(state)
@@ -13,6 +13,16 @@ export function reducer(state = [], action) {
                     responsible,
                     priority,
                     // done: false
+                },
+                ...state.slice(action.index + 1)
+            ]
+        }
+        case SET_TODO_DONE: {
+            return [
+                ...state.slice(0, action.index),
+                state[action.index] = {
+                    ...state[action.index],
+                    done: true
                 },
                 ...state.slice(action.index + 1)
             ]

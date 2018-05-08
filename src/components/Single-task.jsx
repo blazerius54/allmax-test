@@ -46,7 +46,7 @@ class SingleTask extends Component {
                     !isEditing ?
                         <div className='single-task-div'>
                             <div className='task-section'>
-                                <p className={done?'nice':null}>Title: </p> <p>{title}</p>
+                                <p>Title: </p> <h4 className={done?'nice':null}>{title}</h4><button className='delete-btn'>delete</button>
                             </div>
                             <div className='task-section'>
                                 <p>Description: </p> <p>{description}</p>
@@ -57,7 +57,11 @@ class SingleTask extends Component {
                             <div className='task-section'>
                                 <p>Priority: </p> <p>{priority}</p>
                             </div>
-                            <button onClick={()=>this.setState({isEditing: true})}>Edit</button>
+                            <div className='task-section'>
+                                <button onClick={()=>this.setState({isEditing: true})}>edit</button>
+                                <button onClick={()=>this.props.setTodoDone(this.props.index)}>done</button>
+                            </div>
+                            
                         </div> :
                         <form onSubmit={(e)=>{this.handleSubmit(e)}}>
                             <div className='single-task-form'>
@@ -90,7 +94,7 @@ class SingleTask extends Component {
                                 </div>
                                 
                             </div>
-                            <button type='submit'>Save</button>
+                            <button type='submit' className='save-btn'>save</button>
                         </form>
                 }
             </div>
