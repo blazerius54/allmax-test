@@ -1,3 +1,61 @@
 .single-task {
     margin-bottom: 50px;
+
+    .single-task-form {
+        display: flex;
+        flex-direction: column;
+
+        input, textarea {
+            margin-bottom: 10px;
+        }
+
+        .form-section {
+            display: flex;
+            justify-content: space-between;
+          }
+          
+          .form-section * {
+            /* flex:1 1 50%; */
+            margin-bottom: 20px;
+          }
+          
+          .form-section label {
+            flex-basis: 20%;
+          }
+          
+          
+          .form-section input, .form-section textarea, .form-section select {
+            flex-grow: 1;
+            /* border-radius: 5px; */
+            /* box-shadow: none; */
+            border: none;
+            border-bottom: 2px solid gray;
+            transition: border-bottom 500ms linear;
+            background-color: #F0F0F0;
+          }
+          
+          .form-section textarea {
+            transition: border-bottom 500ms linear;
+          }
+          
+          
+          
+          .form-section input:focus, .form-section textarea:focus, .form-section select:focus {
+            border-bottom: 2px solid #4C99CC; 
+            box-shadow: 0px 5px 5px -6px #4C99CC; 
+          }
+    }
+
+    .single-task-div {
+        // flex-direction: column;
+        // justify-content: space-between;
+        .task-section {
+            display: flex;
+            // justify-content: space-around;
+            p:first-of-type {
+                flex-basis: 20%;
+            }
+        }
+    }
+    
 }
