@@ -1,0 +1,13 @@
+.App {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: $wrapper-bg-color;
+    padding-top: 50px;
+
+    .app-wrapper {
+        margin: 40px;
+    }
+}

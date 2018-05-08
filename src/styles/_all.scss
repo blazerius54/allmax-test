@@ -1,6 +1,13 @@
 @import './utilities/variables.scss';
+@import './_app.scss';
+@import './_single-task.scss';
 
 * {
     font-family: $main-font;
     color: $font-color;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $body-bg-color;    
 }
