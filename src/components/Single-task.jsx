@@ -95,13 +95,10 @@ class SingleTask extends Component {
                                     <label>Responsible:</label>
                                     <input type="text" defaultValue={responsible} onChange={(e)=>{this.setState({responsible: e.target.value})}} />
                                 </div>
-                                {/* <button onClick={()=>this.setState({isEditing: false})}>Edit</button> */}
                                 <div className='form-section'>
                                     <label htmlFor="">Priority:</label>
                                     <select
                                     name='todoPriority'
-                                    // ref={(select) => { this.selectPriority = select; }}
-                                    // value={priority}
                                     onChange={(e)=>{this.setState({priority: e.target.value})}}
                                     >
                                         <option></option>
@@ -113,14 +110,10 @@ class SingleTask extends Component {
                                 <div className='form-section'>
                                     <label htmlFor="">Date <span className='necessary'>(if necessary)</span></label>
                                     <input
-                                        id="date"
                                         type="datetime-local"
-                                        // ref={(input) => { this.dateInput = input }}
-                                        // onChange={this.handleInputChange.bind(this)}
                                         onChange={(e)=>{this.setState({date: e.target.value})}}
                                     />
                                 </div>
-                                
                             </div>
                             <button type='submit' className='save-btn'>save</button>
                         </form>

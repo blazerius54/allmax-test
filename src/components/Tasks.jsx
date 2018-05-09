@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SingleTask from './Single-task';
 import { bindActionCreators } from 'redux';
-import { editTodo, setTodoDone } from '../actions';
+import { addNewTodo, editTodo, setTodoDone } from '../actions';
+import NewTodoForm from './NewTodoForm';
 
 const Tasks = (props) => {
     return (
       <div className='all-tasks'>
+        <NewTodoForm addNewTodo={props.addNewTodo} />
         <p>Todos:</p>
         {
             props.tasks.map((item, index)=>{
@@ -24,7 +26,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-    return bindActionCreators({ editTodo, setTodoDone }, dispatch)
+    return bindActionCreators({ addNewTodo, editTodo, setTodoDone }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tasks);

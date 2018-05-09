@@ -3,6 +3,7 @@ import './App.scss';
 import store from './store';
 import { Provider } from 'react-redux';
 import Tasks from './components/Tasks';
+// import Form from './components/Form';
 
 class App extends Component {
   render() {
