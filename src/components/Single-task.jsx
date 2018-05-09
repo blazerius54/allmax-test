@@ -11,12 +11,13 @@ class SingleTask extends Component {
             description: '',
             responsible: '',
             priority: '',
+            date: null,
             done: null
         }
     }
 
     componentDidMount () {
-        const { title, description, responsible, priority, done } = this.props.item;
+        const { title, description, responsible, priority, done, date } = this.props.item;
 
         this.setState({
             title,
@@ -24,12 +25,13 @@ class SingleTask extends Component {
             responsible,
             priority, 
             done,
+            date
         })
     }
 
     handleSubmit (e) {
-        const { title, description, responsible, priority, done } = this.state;
-        let newTodo = { title, description, responsible, priority, done, doneTime: this.props.item.doneTime }
+        const { title, description, responsible, priority, done, date } = this.state;
+        let newTodo = { title, description, responsible, priority, done, date, doneTime: this.props.item.doneTime }
         
         e.preventDefault();
         this.setState({isEditing: false});
@@ -37,7 +39,7 @@ class SingleTask extends Component {
     }
 
     render() {
-        const { title, description, responsible, priority, done, doneTime } = this.props.item;
+        const { title, description, responsible, priority, done, date, doneTime } = this.props.item;
         const { isEditing } = this.state;
 
         return (
@@ -46,7 +48,8 @@ class SingleTask extends Component {
                     !isEditing ?
                         <div className='single-task-div'>
                             <div className='task-section'>
-                                <p>Title: </p> <h4 className={done?'nice':null}>{title}</h4><button className='delete-btn'>delete</button>
+                                <p>Title: </p> <h4 className={done?'nice':null}>{title}</h4>
+                                <button className='delete-btn'>delete</button>
                             </div>
                             <div className='task-section'>
                                 <p>Description: </p> <p>{description}</p>
@@ -58,6 +61,12 @@ class SingleTask extends Component {
                                 <p>Priority: </p> <p>{priority}</p> 
                                 
                             </div>
+                            {
+                                date && 
+                                <div className='task-section'>
+                                    <p>Deadline:</p> <p>{moment(new Date(date)).format(" MMMM Do, HH:mm")}</p>
+                                </div>
+                            }
                             <div className='task-section'>
                                 <button onClick={()=>this.setState({isEditing: true})}>edit</button>
                                 {
@@ -65,7 +74,9 @@ class SingleTask extends Component {
                                         <div className='done-time'>
                                             Done time: { moment(new Date(doneTime)).format(" MMMM Do, HH:mm") }
                                         </div> :
-                                        <button className='nice-btn' onClick={() =>{this.setState({done: true}); this.props.setTodoDone(this.props.index)}}>done</button>
+                                        <div>
+                                            <button className='nice-btn' onClick={() =>{this.setState({done: true}); this.props.setTodoDone(this.props.index)}}>done</button>
+                                        </div>
                                 }
                             </div>
                             
@@ -98,6 +109,16 @@ class SingleTask extends Component {
                                         <option>Medium</option>
                                         <option>High</option>
                                     </select>
+                                </div>
+                                <div className='form-section'>
+                                    <label htmlFor="">Date <span className='necessary'>(if necessary)</span></label>
+                                    <input
+                                        id="date"
+                                        type="datetime-local"
+                                        // ref={(input) => { this.dateInput = input }}
+                                        // onChange={this.handleInputChange.bind(this)}
+                                        onChange={(e)=>{this.setState({date: e.target.value})}}
+                                    />
                                 </div>
                                 
                             </div>
