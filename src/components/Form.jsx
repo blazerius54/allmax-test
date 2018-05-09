@@ -29,9 +29,9 @@ const From = (props) => {
                     onChange={(e)=>props.onChangeForm('priority', e.target.value)}
                 >
                     <option></option>
-                    <option>Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
+                    <option>low</option>
+                    <option>medium</option>
+                    <option>high</option>
                 </select>
             </div>
             <div className='form-section'>

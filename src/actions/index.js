@@ -1,4 +1,4 @@
-import { ADD_NEW_TODO, DELETE_TODO, EDIT_TODO, SET_TODO_DONE } from '../consts';
+import { ADD_NEW_TODO, DELETE_TODO, EDIT_TODO, SET_TODO_DONE, CHANGE_FILTER } from '../consts';
 
 export const addNewTodo = (newTodo) => {
     const action = {
@@ -33,5 +33,13 @@ export const setTodoDone = (index) => {
         doneTime: new Date()
     }
     console.log(action)
+    return action
+}
+
+export const changeFilter = (priority) => {
+    const action = {
+        type: CHANGE_FILTER,
+        priority
+    }
     return action
 }

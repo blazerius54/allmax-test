@@ -1,32 +1,44 @@
 let todos = [
     {
-        title: 'Sit occaecat sunt nisi aliqua occaecat.',
+        title: '1.',
         description: 'Non non consectetur enim pariatur dolore enim.Amet consequat aliqua ullamco in.',
         responsible: 'Max',
-        priority: 'high',
-        done: false
+        priority: 'medium',
+        done: false,
+        id: 1
     },
     {
-        title: 'Aliqua enim cupidatat dolor amet irure qui.',
+        title: '2',
         description: 'Non Culpa excepteur officia consectetur enim proident cillum aliqua anim. enim.Amet consequat aliqua ullamco in.',
         responsible: 'Nadya',
         priority: 'high',
         done: false,
-        doneTime: null
+        doneTime: null,
+        id: 2
     },
     {
         title: '3',
         description: 'Non Culpa excepteur officia consectetur enim proident cillum aliqua anim. enim.Amet consequat aliqua ullamco in.',
         responsible: 'Nadya',
-        priority: 'high',
-        done: false
+        priority: 'low',
+        done: false,
+        id: 3
     },
     {
         title: '4',
         description: 'Non Culpa excepteur officia consectetur enim proident cillum aliqua anim. enim.Amet consequat aliqua ullamco in.',
         responsible: 'Nadya',
         priority: 'high',
-        done: false
+        done: false,
+        id: 4 
+    },
+    {
+        title: '5',
+        description: 'LOW',
+        responsible: 'Nadya',
+        priority: 'low',
+        done: false,
+        id: 5
     },
 ]
 

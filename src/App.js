@@ -3,16 +3,24 @@ import './App.scss';
 import store from './store';
 import { Provider } from 'react-redux';
 import Tasks from './components/Tasks';
+import Header from './components/Header';
 // import Form from './components/Form';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        priority: 'medium',
+    }
+}
   render() {
     return (
       <Provider store={store}>
         <div className="App">
           <div className='app-wrapper'>
             {/* input */}
-            <Tasks />
+            <Header />
+            <Tasks priority={this.state.priority}/>
           </div>
         </div>
       </Provider>
