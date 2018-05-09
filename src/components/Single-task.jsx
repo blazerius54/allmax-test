@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-
+import Form from './Form';
 
 class SingleTask extends Component {
     constructor(props) {
@@ -26,6 +26,12 @@ class SingleTask extends Component {
             priority, 
             done,
             date
+        })
+    }
+
+    onChangeForm (propertyName, value) {
+        this.setState({
+            [propertyName]: value
         })
     }
 
@@ -81,42 +87,49 @@ class SingleTask extends Component {
                             </div>
                             
                         </div> :
-                        <form onSubmit={(e)=>{this.handleSubmit(e)}}>
-                            <div className='single-task-form'>
-                                <div className='form-section'>
-                                    <label>Title:</label>
-                                    <input type="text" defaultValue={title} onChange={(e)=>{this.setState({title: e.target.value})}} />
-                                </div>
-                                <div className='form-section'>
-                                    <label>Description:</label>
-                                    <textarea type="text" defaultValue={description} onChange={(e)=>{this.setState({description: e.target.value})}} />
-                                </div>
-                                <div className='form-section'>
-                                    <label>Responsible:</label>
-                                    <input type="text" defaultValue={responsible} onChange={(e)=>{this.setState({responsible: e.target.value})}} />
-                                </div>
-                                <div className='form-section'>
-                                    <label htmlFor="">Priority:</label>
-                                    <select
-                                    name='todoPriority'
-                                    onChange={(e)=>{this.setState({priority: e.target.value})}}
-                                    >
-                                        <option></option>
-                                        <option>Low</option>
-                                        <option>Medium</option>
-                                        <option>High</option>
-                                    </select>
-                                </div>
-                                <div className='form-section'>
-                                    <label htmlFor="">Date <span className='necessary'>(if necessary)</span></label>
-                                    <input
-                                        type="datetime-local"
-                                        onChange={(e)=>{this.setState({date: e.target.value})}}
-                                    />
-                                </div>
-                            </div>
-                            <button type='submit' className='save-btn'>save</button>
-                        </form>
+                        <Form 
+                        onChangeForm={this.onChangeForm.bind(this)} 
+                        handleSubmit={this.handleSubmit.bind(this)}
+                        {...this.state}
+                        text={'save'}
+                        />
+                        
+                        // <form onSubmit={(e)=>{this.handleSubmit(e)}}>
+                        //     <div className='single-task-form'>
+                        //         <div className='form-section'>
+                        //             <label>Title:</label>
+                        //             <input type="text" defaultValue={title} onChange={(e)=>{this.setState({title: e.target.value})}} />
+                        //         </div>
+                        //         <div className='form-section'>
+                        //             <label>Description:</label>
+                        //             <textarea type="text" defaultValue={description} onChange={(e)=>{this.setState({description: e.target.value})}} />
+                        //         </div>
+                        //         <div className='form-section'>
+                        //             <label>Responsible:</label>
+                        //             <input type="text" defaultValue={responsible} onChange={(e)=>{this.setState({responsible: e.target.value})}} />
+                        //         </div>
+                        //         <div className='form-section'>
+                        //             <label htmlFor="">Priority:</label>
+                        //             <select
+                        //             name='todoPriority'
+                        //             onChange={(e)=>{this.setState({priority: e.target.value})}}
+                        //             >
+                        //                 <option></option>
+                        //                 <option>Low</option>
+                        //                 <option>Medium</option>
+                        //                 <option>High</option>
+                        //             </select>
+                        //         </div>
+                        //         <div className='form-section'>
+                        //             <label htmlFor="">Date <span className='necessary'>(if necessary)</span></label>
+                        //             <input
+                        //                 type="datetime-local"
+                        //                 onChange={(e)=>{this.setState({date: e.target.value})}}
+                        //             />
+                        //         </div>
+                        //     </div>
+                        //     <button type='submit' className='save-btn'>save</button>
+                        // </form>
                 }
             </div>
         )
