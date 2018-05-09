@@ -13,7 +13,8 @@ export const editTodo = (newTodo, index) => {
 export const setTodoDone = (index) => {
     const action = {
         type: SET_TODO_DONE,
-        index  
+        index,
+        doneTime: new Date()
     }
     console.log(action)
     return action

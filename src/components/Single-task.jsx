@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 
 class SingleTask extends Component {
@@ -9,7 +10,8 @@ class SingleTask extends Component {
             title: '',
             description: '',
             responsible: '',
-            priority: ''
+            priority: '',
+            done: null
         }
     }
 
@@ -20,28 +22,26 @@ class SingleTask extends Component {
             title,
             description,
             responsible,
-            priority
+            priority, 
+            done,
         })
     }
 
     handleSubmit (e) {
-        const { title, description, responsible, priority } = this.state;
-        let newTodo = {
-            title, description, responsible, priority
-        }
+        const { title, description, responsible, priority, done } = this.state;
+        let newTodo = { title, description, responsible, priority, done, doneTime: this.props.item.doneTime }
         
         e.preventDefault();
         this.setState({isEditing: false});
-        this.props.editTodo( newTodo, this.props.index)
+        this.props.editTodo(newTodo, this.props.index)
     }
 
     render() {
-        const { title, description, responsible, priority, done } = this.props.item;
+        const { title, description, responsible, priority, done, doneTime } = this.props.item;
         const { isEditing } = this.state;
 
         return (
             <div className='single-task' onSubmit={(e)=>{this.handleSubmit(e)}}>
-                <p>Task</p>
                 {
                     !isEditing ?
                         <div className='single-task-div'>
@@ -55,11 +55,18 @@ class SingleTask extends Component {
                                 <p>Responsible: </p> <p>{responsible}</p>
                             </div>
                             <div className='task-section'>
-                                <p>Priority: </p> <p>{priority}</p>
+                                <p>Priority: </p> <p>{priority}</p> 
+                                
                             </div>
                             <div className='task-section'>
                                 <button onClick={()=>this.setState({isEditing: true})}>edit</button>
-                                <button onClick={()=>this.props.setTodoDone(this.props.index)}>done</button>
+                                {
+                                    doneTime ?
+                                        <div className='done-time'>
+                                            Done time: { moment(new Date(doneTime)).format(" MMMM Do, HH:mm") }
+                                        </div> :
+                                        <button className='nice-btn' onClick={() =>{this.setState({done: true}); this.props.setTodoDone(this.props.index)}}>done</button>
+                                }
                             </div>
                             
                         </div> :

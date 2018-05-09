@@ -4,7 +4,7 @@ export function reducer(state = [], action) {
     // console.log(state)
     switch (action.type) {
         case EDIT_TODO: {
-            const { title, description, responsible, priority } = action.newTodo
+            const { title, description, responsible, priority, done, doneTime } = action.newTodo
             return [
                 ...state.slice(0, action.index),
                 state[action.index] = {
@@ -12,17 +12,20 @@ export function reducer(state = [], action) {
                     description,
                     responsible,
                     priority,
-                    // done: false
+                    done,
+                    doneTime
                 },
                 ...state.slice(action.index + 1)
             ]
         }
         case SET_TODO_DONE: {
+            console.log(action.doneTime)
             return [
                 ...state.slice(0, action.index),
                 state[action.index] = {
                     ...state[action.index],
-                    done: true
+                    done: true,
+                    doneTime: action.doneTime
                 },
                 ...state.slice(action.index + 1)
             ]

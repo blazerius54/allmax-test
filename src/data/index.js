@@ -11,7 +11,8 @@ let todos = [
         description: 'Non Culpa excepteur officia consectetur enim proident cillum aliqua anim. enim.Amet consequat aliqua ullamco in.',
         responsible: 'Nadya',
         priority: 'high',
-        done: false
+        done: false,
+        doneTime: null
     },
     {
         title: '3',

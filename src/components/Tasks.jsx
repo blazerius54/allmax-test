@@ -6,7 +6,7 @@ import { editTodo, setTodoDone } from '../actions';
 
 const Tasks = (props) => {
     return (
-      <div>
+      <div className='all-tasks'>
         <p>Todos:</p>
         {
             props.tasks.map((item, index)=>{
