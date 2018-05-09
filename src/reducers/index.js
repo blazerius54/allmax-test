@@ -1,4 +1,4 @@
-import { ADD_NEW_TODO, EDIT_TODO, SET_TODO_DONE } from '../consts';
+import { ADD_NEW_TODO, DELETE_TODO, EDIT_TODO, SET_TODO_DONE } from '../consts';
 
 export function reducer(state = [], action) {
     // console.log(state)
@@ -7,7 +7,13 @@ export function reducer(state = [], action) {
             return [
                 ...state, {...action.newTodo}
             ]
-        } 
+        }
+        case DELETE_TODO: {
+            return [
+                ...state.slice(0, action.index),
+                ...state.slice(action.index+1)
+            ]
+        }
         case EDIT_TODO: {
             const { title, description, responsible, priority, done, date, doneTime } = action.newTodo
             return [

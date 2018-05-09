@@ -1,9 +1,17 @@
-import { ADD_NEW_TODO, EDIT_TODO, SET_TODO_DONE } from '../consts';
+import { ADD_NEW_TODO, DELETE_TODO, EDIT_TODO, SET_TODO_DONE } from '../consts';
 
 export const addNewTodo = (newTodo) => {
     const action = {
         type: ADD_NEW_TODO,
         newTodo
+    }
+    return action
+}
+
+export const deleteTodo = (index) => {
+    const action = {
+        type: DELETE_TODO,
+        index
     }
     return action
 }

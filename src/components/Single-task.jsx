@@ -55,7 +55,7 @@ class SingleTask extends Component {
                         <div className='single-task-div'>
                             <div className='task-section'>
                                 <p>Title: </p> <h4 className={done?'nice':null}>{title}</h4>
-                                <button className='delete-btn'>delete</button>
+                                <button className='delete-btn' onClick={()=>this.props.deleteTodo(this.props.index)}>delete</button>
                             </div>
                             <div className='task-section'>
                                 <p>Description: </p> <p>{description}</p>
@@ -93,43 +93,6 @@ class SingleTask extends Component {
                         {...this.state}
                         text={'save'}
                         />
-                        
-                        // <form onSubmit={(e)=>{this.handleSubmit(e)}}>
-                        //     <div className='single-task-form'>
-                        //         <div className='form-section'>
-                        //             <label>Title:</label>
-                        //             <input type="text" defaultValue={title} onChange={(e)=>{this.setState({title: e.target.value})}} />
-                        //         </div>
-                        //         <div className='form-section'>
-                        //             <label>Description:</label>
-                        //             <textarea type="text" defaultValue={description} onChange={(e)=>{this.setState({description: e.target.value})}} />
-                        //         </div>
-                        //         <div className='form-section'>
-                        //             <label>Responsible:</label>
-                        //             <input type="text" defaultValue={responsible} onChange={(e)=>{this.setState({responsible: e.target.value})}} />
-                        //         </div>
-                        //         <div className='form-section'>
-                        //             <label htmlFor="">Priority:</label>
-                        //             <select
-                        //             name='todoPriority'
-                        //             onChange={(e)=>{this.setState({priority: e.target.value})}}
-                        //             >
-                        //                 <option></option>
-                        //                 <option>Low</option>
-                        //                 <option>Medium</option>
-                        //                 <option>High</option>
-                        //             </select>
-                        //         </div>
-                        //         <div className='form-section'>
-                        //             <label htmlFor="">Date <span className='necessary'>(if necessary)</span></label>
-                        //             <input
-                        //                 type="datetime-local"
-                        //                 onChange={(e)=>{this.setState({date: e.target.value})}}
-                        //             />
-                        //         </div>
-                        //     </div>
-                        //     <button type='submit' className='save-btn'>save</button>
-                        // </form>
                 }
             </div>
         )
