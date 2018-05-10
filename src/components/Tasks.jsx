@@ -10,11 +10,13 @@ const Tasks = (props) => {
       <div className='all-tasks'>
         <NewTodoForm addNewTodo={props.addNewTodo} />
         {
+            props.tasks.length?
             props.tasks.map((item, index)=>{
                 return <SingleTask key={index} item={item} index={index}
                 visible={props.filter}
                 editTodo={props.editTodo} setTodoDone={props.setTodoDone} deleteTodo={props.deleteTodo}/>
-            })
+            }) :
+            <p style={{textAlign: 'center', fontWeight: 600}}>No tasks yet</p>
         }
       </div>
     )

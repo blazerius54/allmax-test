@@ -4,7 +4,6 @@ import store from './store';
 import { Provider } from 'react-redux';
 import Tasks from './components/Tasks';
 import Header from './components/Header';
-// import Form from './components/Form';
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +17,6 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <div className='app-wrapper'>
-            {/* input */}
             <Header />
             <Tasks priority={this.state.priority}/>
           </div>

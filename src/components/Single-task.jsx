@@ -55,7 +55,6 @@ class SingleTask extends Component {
         let titleClasses = classNames({
             'nice': doneTime,
             'late': new Date(date) < new Date(Date.now()) && date
-            // 'late': date
         })
 
         return (
@@ -85,7 +84,10 @@ class SingleTask extends Component {
                             {
                                 date && 
                                 <div className='task-section'>
-                                    <p>Deadline:</p> <p className={classNames({'late': new Date(date) < new Date(Date.now())})}>{moment(new Date(date)).format(" MMMM Do, HH:mm")}</p>
+                                    <p>Deadline:</p>
+                                    <p className={classNames({'late': new Date(date) < new Date(Date.now())})}>
+                                        {moment(new Date(date)).format(" MMMM Do, HH:mm")}
+                                    </p>
                                 </div>
                             }
                             <div className='task-section'>
@@ -96,7 +98,11 @@ class SingleTask extends Component {
                                         </div> :
                                         <div className='task-section-btns'>
                                             <button onClick={() => this.setState({ isEditing: true })}>edit</button>
-                                            <button className='nice-btn' onClick={() => { this.setState({ done: true, doneTime: new Date() }); setTodoDone(index) }}>done</button>
+                                            <button className='nice-btn' 
+                                            onClick={() => { this.setState({ done: true, doneTime: new Date() }); 
+                                            setTodoDone(index) }}>
+                                                done
+                                            </button>
                                         </div>
                                 }
                             </div>

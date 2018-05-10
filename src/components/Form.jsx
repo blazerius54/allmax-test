@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 class From extends Component {
-    // submitForm (e) {
-        
-    // } 
 
     render() {
 
@@ -12,7 +9,6 @@ class From extends Component {
         const title = this.props.title || '';
         const description = this.props.description || '';
         const responsible = this.props.responsible || '';
-
 
         return (
             <form onSubmit={(e) => { handleSubmit(e) }}>
