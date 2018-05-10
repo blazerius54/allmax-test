@@ -92,7 +92,7 @@ class SingleTask extends Component {
                                 {
                                     doneTime ?
                                         <div className='done-time nice'>
-                                            Done time: {moment(new Date(doneTime)).format(" MMMM Do, HH:mm")}
+                                             Done time: {moment(new Date(doneTime)).format(" MMMM Do, HH:mm")}
                                         </div> :
                                         <div className='task-section-btns'>
                                             <button onClick={() => this.setState({ isEditing: true })}>edit</button>

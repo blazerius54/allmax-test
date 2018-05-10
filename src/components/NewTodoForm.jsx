@@ -14,19 +14,7 @@ class NewTodoForm extends Component {
         }
     }
 
-    validate() {
-        const { title, description, responsible, priority, date } = this.state;
-        if(
-            title !== '' || description !== '' 
-        ) {
-            this.setState({
-                error: false
-            })
-        }
-    }
-
     handleSubmit (e) {
-        this.validate();
         const { title, description, responsible, priority, date } = this.state;
         let newTodo = { title, description, responsible, priority, date };
 
@@ -47,8 +35,6 @@ class NewTodoForm extends Component {
                 error: 'Please, enter all info'
             })
         }
-        
-        
 
         e.preventDefault();
         e.target.reset();
@@ -64,13 +50,17 @@ class NewTodoForm extends Component {
 
         const { error } = this.state;
 
-        return <div className='single-task'><Form 
-        onChangeForm={this.onChangeForm.bind(this)} 
-        handleSubmit={this.handleSubmit.bind(this)} 
-        text={'add new'}
-        />
-        { error && <div className='error'> {error} </div> }
-        </div>
+        return (
+            <div className='single-task'>
+                <h2>Add your todo:</h2>
+                <Form
+                    onChangeForm={this.onChangeForm.bind(this)}
+                    handleSubmit={this.handleSubmit.bind(this)}
+                    text={'add new'}
+                />
+                {error && <div className='error'> {error} </div>}
+            </div>
+        )
     }
 }
 

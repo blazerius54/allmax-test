@@ -8,10 +8,10 @@ const Header = (props) => {
       <header >
         <h2>Todos:</h2>        
         <div className='header-btns'>
+          <button onClick={()=>props.changeFilter('all')}>show all</button>
           <button onClick={()=>props.changeFilter('low')}>low</button>
           <button onClick={()=>props.changeFilter('medium')}>medium</button>
           <button onClick={()=>props.changeFilter('high')}>high</button>
-          <button onClick={()=>props.changeFilter('all')}>show all</button>
         </div>
       </header>
     )

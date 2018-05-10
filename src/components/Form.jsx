@@ -16,7 +16,6 @@ class From extends Component {
 
         return (
             <form onSubmit={(e) => { handleSubmit(e) }}>
-                <h3>Add your todo:</h3>
                 <div className='single-task-form'>
                     <div className='form-section'>
                         <label>Title:</label>
