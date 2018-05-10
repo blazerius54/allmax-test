@@ -22,7 +22,6 @@ export const editTodo = (newTodo, index) => {
         newTodo,
         index  
     }
-    // console.log(action)
     return action
 }
 
@@ -32,7 +31,6 @@ export const setTodoDone = (index) => {
         index,
         doneTime: new Date()
     }
-    console.log(action)
     return action
 }
 

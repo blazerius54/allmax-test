@@ -33,3 +33,10 @@ button {
 .late {
     color: $danger-color;
 }
+
+.error {
+    color: $danger-color;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}

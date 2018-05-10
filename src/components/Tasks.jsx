@@ -12,7 +12,6 @@ const Tasks = (props) => {
         {
             props.tasks.map((item, index)=>{
                 return <SingleTask key={index} item={item} index={index}
-                // visible={item.priority === props.filter}
                 visible={props.filter}
                 editTodo={props.editTodo} setTodoDone={props.setTodoDone} deleteTodo={props.deleteTodo}/>
             })
@@ -22,7 +21,6 @@ const Tasks = (props) => {
 }
 
 function mapStateToProps (state) {
-    console.log(state)
     return {
         tasks: state.tasks,
         filter: state.filter

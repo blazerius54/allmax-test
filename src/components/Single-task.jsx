@@ -19,7 +19,7 @@ class SingleTask extends Component {
     }
 
     componentDidMount () {
-        const { title, description, responsible, priority, done, date, doneTime } = this.props.item;
+        const { title, description, responsible, priority, done, date } = this.props.item;
 
         this.setState({
             title,
@@ -47,20 +47,18 @@ class SingleTask extends Component {
     }
     
     render() {
-        console.log(this.props.visible);
         const { deleteTodo, setTodoDone, index } = this.props;
-        const { title, description, responsible, priority, done, date, doneTime } = this.props.item;
+        const { title, description, responsible, priority, date, doneTime } = this.props.item;
         const { isEditing } = this.state;
 
 
         let titleClasses = classNames({
             'nice': doneTime,
-            'late': new Date(date) < new Date(Date.now())
+            'late': new Date(date) < new Date(Date.now()) && date
+            // 'late': date
         })
 
-        console.log(new Date(Date.now()))
         return (
-            // <div className='single-task' onSubmit={(e)=>{this.handleSubmit(e)}} style={this.props.visible === true || 'all' ? {display: 'block'} : {display: 'none'}}>
             <div className='single-task' onSubmit={(e)=>{this.handleSubmit(e)}} style={this.props.visible === priority || this.props.visible === 'all' ? {display: 'block'} : {display: 'none'}}>
                 {
                     !isEditing ?
@@ -93,7 +91,7 @@ class SingleTask extends Component {
                             <div className='task-section'>
                                 {
                                     doneTime ?
-                                        <div className='done-time'>
+                                        <div className='done-time nice'>
                                             Done time: {moment(new Date(doneTime)).format(" MMMM Do, HH:mm")}
                                         </div> :
                                         <div className='task-section-btns'>

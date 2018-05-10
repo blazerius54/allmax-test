@@ -2,7 +2,6 @@ import { ADD_NEW_TODO, DELETE_TODO, EDIT_TODO, SET_TODO_DONE } from '../consts';
 import todos from '../data';
 
 export function todo(state = todos, action) {
-    // console.log(state)
     switch (action.type) {
         case ADD_NEW_TODO: {
             return [
@@ -16,7 +15,6 @@ export function todo(state = todos, action) {
             ]
         }
         case EDIT_TODO: {
-            console.log(action.index + 1)
             const { title, description, responsible, priority, done, date, doneTime } = action.newTodo
             return [
                 ...state.slice(0, action.index ),
@@ -33,7 +31,6 @@ export function todo(state = todos, action) {
             ]
         }
         case SET_TODO_DONE: {
-            console.log(action.doneTime)
             return [
                 ...state.slice(0, action.index),
                 state[action.index] = {
