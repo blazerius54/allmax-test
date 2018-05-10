@@ -38,11 +38,11 @@ class NewTodoForm extends Component {
     }
 
     render() {
-        const { title, description, responsible, priority, done, date } = this.state;
-
-        return (
-            <Form onChangeForm={this.onChangeForm.bind(this)} handleSubmit={this.handleSubmit.bind(this)} text={'add new'}/>
-        )
+        return <Form 
+        onChangeForm={this.onChangeForm.bind(this)} 
+        handleSubmit={this.handleSubmit.bind(this)} 
+        text={'add new'}
+        />
     }
 }
 

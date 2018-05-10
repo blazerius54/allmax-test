@@ -14,6 +14,7 @@ let todos = [
         priority: 'high',
         done: false,
         doneTime: null,
+        date: 'Thu May 9 2018 14:42',
         id: 2
     },
     {

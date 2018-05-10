@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import SingleTask from './Single-task';
 import { bindActionCreators } from 'redux';
@@ -9,7 +9,6 @@ const Tasks = (props) => {
     return (
       <div className='all-tasks'>
         <NewTodoForm addNewTodo={props.addNewTodo} />
-        <h3>Todos:</h3>
         {
             props.tasks.map((item, index)=>{
                 return <SingleTask key={index} item={item} index={index}
@@ -17,10 +16,6 @@ const Tasks = (props) => {
                 visible={props.filter}
                 editTodo={props.editTodo} setTodoDone={props.setTodoDone} deleteTodo={props.deleteTodo}/>
             })
-            // props.tasks.filter(item=> props.filter ? item.priority === props.filter : item).map((item, index)=>{
-            //     return <SingleTask key={index} item={item} index={index} 
-            //     editTodo={props.editTodo} setTodoDone={props.setTodoDone} deleteTodo={props.deleteTodo}/>
-            // })
         }
       </div>
     )
